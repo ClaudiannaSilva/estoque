@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class produto extends Model
 {
     use HasFactory;
+    php artisan make:migration create_flights_table
+    protected $table= 'produtos';
 }
+
