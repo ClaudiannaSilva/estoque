@@ -22,11 +22,20 @@ Route::get('/', function () {
 //listar todos os produtos
 
 
-Route::get('/produto', [ProdutoController::class, 'index']);
+Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index');
+
+// create
+Route::get('/produto/create', [ProdutoController::class, 'create']);->name('produto.create');
+
+// store
+Route::post('/produto/create', [ProdutoController::class, 'store']);->name('produto.store');
+
 
 
 //exibe um produto
 Route::get('/produto/{id}', [ProdutoController::class, 'show']);
+
+
 
 //insere / cria um produto [POST]
 Route::get('/produtostore', [ProdutoController::class, 'store']);

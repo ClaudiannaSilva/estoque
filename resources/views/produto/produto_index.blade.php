@@ -11,7 +11,12 @@
 @endsection
  
 @section('content')
+
+<a href="{{ url('produto/create') }}">CRIAR</a>
+
     <p>Conteúdo</p>
+
+    
    
 
 <table>
@@ -19,15 +24,18 @@
     <th>nome</th>
     <th>quantidade</th>
     <th>valor</th>
-  </tr>
+    </tr></th>
+</tr>
+  
 
   @foreach ($produtos as $value)
   
   <tr>
 
-      <td>{{ $value->nome }}</td>
-      <td>{{ $value->quantidade }}</td>
-      <td>{{ $value->valor }}</td>
+      <td>{{ $value->nome           }}</td>
+      <td>{{ $value->quantidade     }}</td>
+      <td>{{ $value->valor          }}</td>
+      <td><a href="{{ url('produto/' . $value->id) }}">Visualizar</a></td>
 </tr>
 @endforeach
    
