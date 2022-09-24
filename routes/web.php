@@ -25,12 +25,10 @@ Route::get('/', function () {
 Route::get('/produto', [ProdutoController::class, 'index'])->name('produto.index');
 
 // create
-Route::get('/produto/create', [ProdutoController::class, 'create']);->name('produto.create');
+Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produto.create');
 
 // store
-Route::post('/produto/create', [ProdutoController::class, 'store']);->name('produto.store');
-
-
+Route::post('/produto/create', [ProdutoController::class, 'store'])->name('produto.store');
 
 //exibe um produto
 Route::get('/produto/{id}', [ProdutoController::class, 'show']);
@@ -46,3 +44,4 @@ Route::get('/produtoupdate', [ProdutoController::class, 'update']);
 
 //exclui  um produto [DELETE]
 Route::get('/produtodestroy/{id}', [ProdutoController::class, 'destroy']);
+

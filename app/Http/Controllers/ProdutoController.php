@@ -21,7 +21,7 @@ class ProdutoController extends Controller
        //select * from produtos order by nome asc;
     
         $produtos = Produto::orderBy('nome', 'ASC')->get();
-
+        //dd($produtos);
         return view('produto.produto_index', ['produtos' => $produtos]);
 
     }
@@ -53,6 +53,8 @@ class ProdutoController extends Controller
        $produto->quantidade       = $request->quantidade;
        $produto->valor            = $request->valor;
        $produto->save();
+
+       return redirect('/produto')->with('status', 'Produto criado com sucesso');
     }
 
     /**
@@ -63,7 +65,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        // dd('ENTROU NO SHOW');
+        //dd('ENTROU NO SHOW');
         $produto = Produto::find($id);
         //dd($produto);
         return view('produto.produto_show', ['produto' => $produto]);

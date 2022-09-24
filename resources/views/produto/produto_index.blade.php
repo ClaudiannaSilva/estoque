@@ -1,6 +1,5 @@
 <!-- resources/views/produto.index.blade.php -->
- 
-@extends('layouts.app')
+ @extends('layouts.app')
  
 @section('title', 'Page Title')
  
@@ -12,6 +11,12 @@
  
 @section('content')
 
+@if (session('status'))
+  <div class="alert alert-success" role="alert">
+    {{ session('status') }}
+  </div>
+@endif
+
 <a href="{{ url('produto/create') }}">CRIAR</a>
 
     <p>Conteúdo</p>
@@ -20,11 +25,11 @@
    
 
 <table>
-  <tr>
+  <th>
     <th>nome</th>
     <th>quantidade</th>
     <th>valor</th>
-    </tr></th>
+    </th></th>
 </tr>
   
 
@@ -40,4 +45,5 @@
 @endforeach
    
 </table>
+
 @endsection
