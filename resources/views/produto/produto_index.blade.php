@@ -29,7 +29,8 @@
     <th>nome</th>
     <th>quantidade</th>
     <th>valor</th>
-    </th></th>
+    <th></th>
+    <th><th>
 </tr>
   
 
@@ -41,6 +42,9 @@
       <td>{{ $value->quantidade     }}</td>
       <td>{{ $value->valor          }}</td>
       <td><a href="{{ url('produto/' . $value->id) }}">Visualizar</a></td>
+      <td><a href="{{ url('produto/' . $value->id . '/edit') }}">Editar</a></td>
+
+
 </tr>
 @endforeach
    

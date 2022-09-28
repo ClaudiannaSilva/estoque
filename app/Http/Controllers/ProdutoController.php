@@ -79,7 +79,10 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Produto::find($id);
+
+        //dd($produto);
+        return view('produto.produto_edit', ['produto' => $produto]);
     }
 
     /**
