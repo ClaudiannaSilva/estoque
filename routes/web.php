@@ -30,18 +30,24 @@ Route::get('/produto/create', [ProdutoController::class, 'create'])->name('produ
 // store
 Route::post('/produto/create', [ProdutoController::class, 'store'])->name('produto.store');
 
+//edit
+Route::get('/produto/{id}/edit', [ProdutoController::class, 'edit'])->name('produto.edit');
+
 //exibe um produto
 Route::get('/produto/{id}', [ProdutoController::class, 'show']);
+
+//update
+Route::put('/produto/{id}', [ProdutoController::class, 'update'])->name('produto.update');
+
+// delete
+
+Route::delete('/produto/{id}', [ProdutoController::class, 'destroy'])->name('produto.delete');
+
 
 
 
 //insere / cria um produto [POST]
 Route::get('/produtostore', [ProdutoController::class, 'store']);
-
-//edit
-Route::get('/produto/{id}/edit', [ProdutoController::class, 'edit'])->name('produto.edit');
-
-Route::put('/produto/{id}',[ProdutoController::class, 'update'])->('produto.update');
 
 
 
@@ -52,3 +58,11 @@ Route::get('/produtoupdate', [ProdutoController::class, 'update']);
 //exclui  um produto [DELETE]
 Route::get('/produtodestroy/{id}', [ProdutoController::class, 'destroy']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

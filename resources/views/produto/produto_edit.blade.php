@@ -1,6 +1,6 @@
 <!-- resources/views/produto.index.blade.php -->
  
-@extends('layouts.app')
+@extends('adminlte::page')
  
 @section('title', 'Page Title')
  
@@ -25,7 +25,8 @@
 
    
 
-    {!! Form::open(['url' => 'produto/create']) !!}
+    {!! Form::open(['url' =>  'produto/' . $produto->id, 'method' => 'put']) !!}
+
     {{Form::label('nome', 'Nome:') }}<br>
     {{Form::text('nome', $produto->nome) }}<br>
 

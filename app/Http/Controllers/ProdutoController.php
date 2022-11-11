@@ -48,6 +48,21 @@ class ProdutoController extends Controller
     {
       //dd($request->all());
 
+      $messages = [
+        
+        'nome.required' => 'O campo : attribute é obrigatóripo!',
+        'nome.min' => 'O attribute precisa ter no minimo :min.',
+        'quantidade.required' => 'O :attribute é obrigatória!',
+        'quantidade.integer'  => 'O :attribute é obrigatória!'
+      ];
+
+      $validated = $request->validate([
+        'nome'              => 'required|min::8',
+    
+        'quantidade'        => 'required|integer',
+        'valor'             =>'required',
+      ], $messages);
+
        $produto = new Produto;
        $produto->nome             = $request->nome;
        $produto->quantidade       = $request->quantidade;
@@ -95,11 +110,13 @@ class ProdutoController extends Controller
     public function update(Request $request)
     {
         //dd('UPDATE');
-        $produto =  Produto::find(4);
-        $produto->nome            = 'Shampoo Clear Men';
-        $produto->quantidade      = 20;
-        $produto->valor           = 200;
+        $produto =  Produto::find($id);
+        $produto->nome            = $request->nome;
+        $produto->quantidade      = $request->quantidade;
+        $produto->valor           = $request->valor;
         $produto->save();
+
+        return redirect('/produto')->with('status', 'Produto atualizado com sucesso!');
 
         //dd($produto);
     }
@@ -116,8 +133,11 @@ class ProdutoController extends Controller
      public function destroy($id)
 
     {
+        //dd('DESTROY');
         $produto = Produto::find($id);
         $produto->delete();
-        //dd('DESTROY');
+
+       return redirect('/produto')->with('status', 'Produto excluido com sucesso!');
+        
     }
 }
